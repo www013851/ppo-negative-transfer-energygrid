@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energygrid-transfer"
+version = "1.0.0"
+description = "Negative transfer of PPO agents after an inversion of resource utility (EnergyGrid)"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["numpy", "pandas", "torch", "gymnasium", "stable-baselines3", "matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: bit-exact retraining checks, need the checkpoint archive"]

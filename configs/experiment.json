@@ -1,0 +1,91 @@
+{
+  "environment": {
+    "size": 10,
+    "initial_energy": 100,
+    "max_energy": 100,
+    "step_cost": 1,
+    "resource_magnitude": 30,
+    "max_episode_steps": 500
+  },
+  "actor_architectures": {
+    "linear": [],
+    "mlp16": [16, 16],
+    "mlp64": [64, 64],
+    "mlp256": [256, 256]
+  },
+  "critic_architecture": [64, 64],
+  "activation": "Tanh",
+  "device": "cpu",
+  "torch_threads": 1,
+  "ppo": {
+    "learning_rate": 0.0003,
+    "n_steps": 1024,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": true,
+    "ortho_init": true
+  },
+  "phase_steps": 102400,
+  "eval_interval": 10240,
+  "train_seeds": {
+    "first_series": [11, 22, 33, 44, 55],
+    "replication": [101, 202, 303, 404, 505]
+  },
+  "seed_offsets": {
+    "world_b_environment": 1000,
+    "extension_environment_and_torch": 7000,
+    "head_init": 3000000,
+    "hidden_init": 4000000,
+    "critic_init": 5000000
+  },
+  "conditions": {
+    "baseline": "К: plain continuation of PPO in world B",
+    "entropy_spike": "Э: entropy coefficient 0.15 for the first intervention_steps",
+    "gradual_shift": "П: resource utilities change linearly from A to B over intervention_steps",
+    "high_energy": "Б250: initial and maximal energy 250 during training (evaluation stays at 100)",
+    "optimizer_reset": "О: new Adam, all weights kept",
+    "head_optimizer_reset": "Г: new Adam + re-initialised policy output layer",
+    "hidden_optimizer_reset": "С: new Adam + re-initialised policy hidden layers (MLP only)",
+    "critic_optimizer_reset": "Кр: new Adam + re-initialised value function",
+    "critic_head_optimizer_reset": "Кр+Г: new Adam + re-initialised value function and policy output layer",
+    "scratch_B": "Н: new model trained in world B from scratch",
+    "no_shift": "А→А: continuation in world A (control without the rule change)",
+    "head_reset_extended": "Г+: model Г trained for another phase_steps in world B"
+  },
+  "intervention_steps": 20480,
+  "entropy_spike_coefficient": 0.15,
+  "high_energy_training": 250,
+  "evaluation": {
+    "seed_start": 10000,
+    "episodes": 30,
+    "final_last_checkpoints": 3
+  },
+  "baselines": {
+    "strategies": ["random", "fixed_left"],
+    "action_seed": 123456
+  },
+  "rollouts": {
+    "seed_start": 20000,
+    "episodes": 100,
+    "action_seed": 123456,
+    "stuck_window": 30,
+    "stuck_max_cells": 2
+  },
+  "probe": {
+    "seed": 731091,
+    "states": 2048
+  },
+  "statistics": {
+    "bootstrap_samples": 20000,
+    "bootstrap_seed": 424242,
+    "alpha": 0.05,
+    "holm_family": ["entropy_spike", "gradual_shift", "high_energy", "optimizer_reset", "head_optimizer_reset",
+                    "hidden_optimizer_reset", "critic_optimizer_reset", "critic_head_optimizer_reset"]
+  }
+}

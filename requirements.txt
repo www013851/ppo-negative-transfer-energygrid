@@ -1,0 +1,10 @@
+# Exact versions used for all runs (Python 3.13.11, CPU, Windows 10).
+# Bit-exact reproduction of the training curves requires these versions; other versions give statistically
+# equivalent but not identical runs.
+numpy==2.3.4
+pandas==3.0.5
+torch==2.14.1
+gymnasium==1.4.0
+stable-baselines3==2.9.0
+matplotlib==3.10.7
+pytest==9.0.2
