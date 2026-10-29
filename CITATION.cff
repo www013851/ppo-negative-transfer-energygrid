@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Если вы используете этот код или данные, пожалуйста, сошлитесь на статью."
+title: "Отрицательный перенос в PPO при инверсии ресурсов: код и данные"
+authors:
+  - family-names: "Воротынцев"
+    given-names: "Г. А."
+version: 1.0.0
+date-released: 2026-10-29
+license: MIT
+repository-code: "https://github.com/www013851/fuzzy-octo-doodle"
+preferred-citation:
+  type: conference-paper
+  title: "Отрицательный перенос в PPO при инверсии ресурсов: препятствие в политике, а не в функции ценности"
+  authors:
+    - family-names: "Воротынцев"
+      given-names: "Г. А."
+  collection-title: "Сборник статей Санкт-Петербургской научно-технологической конференции «Цифровая трансформация: наука – технологии – общество»"
+  year: 2026
