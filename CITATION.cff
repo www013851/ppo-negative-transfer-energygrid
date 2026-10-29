@@ -7,7 +7,7 @@ authors:
 version: 1.0.0
 date-released: 2026-10-29
 license: MIT
-repository-code: "https://github.com/www013851/fuzzy-octo-doodle"
+repository-code: "https://github.com/www013851/ppo-negative-transfer-energygrid"
 preferred-citation:
   type: conference-paper
   title: "Отрицательный перенос в PPO при инверсии ресурсов: препятствие в политике, а не в функции ценности"

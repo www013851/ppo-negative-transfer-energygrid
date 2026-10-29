@@ -83,10 +83,10 @@ python scripts/summarize.py
 python scripts/make_figures.py
 ```
 
-**2. Поведение итоговых моделей** (около часа на 11 ядрах). Нужен архив моделей из [релиза](https://github.com/www013851/fuzzy-octo-doodle/releases/tag/v1.0.0), около 140 МБ:
+**2. Поведение итоговых моделей** (около часа на 11 ядрах). Нужен архив моделей из [релиза](https://github.com/www013851/ppo-negative-transfer-energygrid/releases/tag/v1.0.0), около 140 МБ:
 
 ```bash
-gh release download v1.0.0 -R www013851/fuzzy-octo-doodle -p checkpoints.zip
+gh release download v1.0.0 -R www013851/ppo-negative-transfer-energygrid -p checkpoints.zip
 unzip checkpoints.zip
 python scripts/evaluate_behaviour.py --checkpoints checkpoints --workers 8
 ```
